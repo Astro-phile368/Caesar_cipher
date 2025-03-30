@@ -1,0 +1,24 @@
+def cipher(shift, x):
+    lst = []
+    for char in x:
+        if char.islower():
+            base = 'a'
+            new_char = chr(((ord(char) - ord(base) + shift) % 26 + ord(base))
+        elif char.isupper():
+            base = 'A'
+            new_char = chr(((ord(char) - ord(base) + shift) % 26 + ord(base)))
+        else:
+            new_char = char  # Leave non-alphabet chars unchanged
+        lst.append(new_char)
+    return ''.join(lst)
+
+while True:
+    x = input('Enter the word (or "quit" to exit): ')
+    if x.lower() == 'quit':
+        break
+    encrypted = cipher(25, x)
+    print(f'Encrypted word: {encrypted}\n')
+    
+
+    
+    
